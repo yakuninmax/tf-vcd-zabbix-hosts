@@ -20,7 +20,7 @@ resource "zabbix_host" "linux-host" {
 }
 
 # Create Zabbix Windows hosts
-resource "zabbix_host" "linux-host" {
+resource "zabbix_host" "windows-host" {
   count = length(var.windows_hosts)
 
   host = var.windows_hosts[count.index].ip
