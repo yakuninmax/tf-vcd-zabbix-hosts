@@ -1,3 +1,15 @@
+variable "admin_name" {
+  type        = string
+  description = "Zabbix admin name"
+  default     = "Admin"
+}
+
+variable "admin_password" {
+  type        = string
+  description = "Zabbix admin password"
+  default     = "zabbix"
+}
+
 variable "external_ip" {
   type        = string
   description = "Zabbix external IP"
@@ -6,18 +18,6 @@ variable "external_ip" {
 variable "external_http_port" {
   type        = number
   description = "Zabbix external HTTP port"
-}
-
-variable "admin_name" {
-  type        = string
-  description = "Zabbix Admin name"
-  default     = "Admin"
-}
-
-variable "admin_password" {
-  type        = string
-  description = "Zabbix admin password"
-  default     = "zabbix"
 }
 
 variable "linux_hosts" {

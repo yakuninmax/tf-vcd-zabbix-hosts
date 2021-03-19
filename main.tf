@@ -11,11 +11,11 @@ resource "zabbix_host" "linux-host" {
   name = var.linux_hosts[count.index].name
   
   interfaces {
-    ip = var.linux_hosts[count.index].ip
+    ip   = var.linux_hosts[count.index].ip
     main = true
   }
   
-  groups = ["Linux servers"]
+  groups    = ["Linux servers"]
   templates = ["Template OS Linux by Zabbix agent"] 
 }
 
@@ -24,13 +24,13 @@ resource "zabbix_host" "windows-host" {
   count = length(var.windows_hosts)
 
   host = var.windows_hosts[count.index].ip
-  name = var.windows_hosts[count.index].name
+  name = upper(var.windows_hosts[count.index].name)
   
   interfaces {
-    ip = var.windows_hosts[count.index].ip
+    ip   = var.windows_hosts[count.index].ip
     main = true
   }
   
-  groups = [zabbix_host_group.windows-group.name]
+  groups    = [zabbix_host_group.windows-group.name]
   templates = ["Template OS Windows by Zabbix agent"] 
 }
